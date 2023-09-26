@@ -9,7 +9,7 @@ READY FOR MIT LICENCE
 
 import csv
 from sailing_robot.navigation import Navigation
-from LatLon import LatLon
+from LatLon23 import LatLon
 from shapely.geometry import Point
 import bisect
 

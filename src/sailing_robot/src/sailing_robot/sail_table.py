@@ -52,10 +52,21 @@ class SailData(object):
         self.sail_table = sail_table
 
     def update_wind(self, msg):
-        self.wind_direction_apparent = msg.data
+        # TODO: receive wind_direction_apparent from xmf
+        #self.wind_direction_apparent = msg.data
+        self.wind_direction_apparent = 45
+
 
     def update_sailing_state(self, msg):
-        self.sailing_state = msg.data
+        # TODO: receive sailing_state from xmf
+        #self.sailing_state = msg.data
+        self.sailing_state = 'normal'
+        user_input = input("Enter new sailing state ('normal' or 'switch_to_port_tack'): ")
+
+        if user_input in ['normal', 'switch_to_port_tack', 'switch_to_stbd_tack']:
+            self.sailing_state = user_input
+        else:
+            print("Invalid input. Sailing state remains unchanged.")
 
     def calculate_sheet_setting(self):
         windDirection = self.wind_direction_apparent

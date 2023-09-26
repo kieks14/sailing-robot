@@ -6,9 +6,10 @@ integrates with ROS to publish logging and debugging topics.
 
 from __future__ import print_function
 
-from LatLon import LatLon
+from LatLon23 import LatLon
 import time
 import types
+import sys
 
 from .navigation import Navigation
 from .heading_planning_laylines import HeadingPlan
@@ -122,6 +123,7 @@ class TasksRunner(object):
         kind = taskdict.pop('kind')
         jump_label = taskdict.pop('jump_label', None)
         if kind == 'to_waypoint':
+            self.log('info', "Making to_waypoint task")
             wp = LatLon(*taskdict['waypoint_ll'])
             kw = {'target_radius': taskdict.get('target_radius', 2.0),
                   'tack_voting_radius': taskdict.get('tack_voting_radius', 15.),
@@ -146,6 +148,7 @@ class TasksRunner(object):
         
         task.task_kind = kind
         task.jump_label = jump_label
+        self.log('info', "Made task %r", task)
         return task
     
     on_temporary_task = False
@@ -165,6 +168,7 @@ class TasksRunner(object):
                     self.task_ix, self.active_task.task_kind, '/'.join(endcond)
         ))
         self.active_task.start()
+        print("DEBUG: Task {} initiated".format(self.task_ix), file=sys.stderr)
 
     def set_jump(self, label):
         '''Jump callback to jump to task on next time step.'''

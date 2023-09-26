@@ -22,6 +22,7 @@ class StartTimer(TaskBase):
         # once.
         self.timer = Timer(self.seconds, self.jump_callback, args=[self.jump_to])
         # If the tasks process dies, the timer thread should die
+        self.log('info', "Starting timer for %s seconds", self.seconds)
         self.timer.daemon = True
         self.timer.start()
 

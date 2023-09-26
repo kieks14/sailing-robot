@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: sailing-robot
+Version: 0.0.1
+Summary: The sailing_robot package
+Home-page: https://github.com/kikibink/sailing_robot
+Author: Kiki Bink
+Author-email: kikibinkk@gmail.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.x
+Classifier: Operating System :: OS Independent

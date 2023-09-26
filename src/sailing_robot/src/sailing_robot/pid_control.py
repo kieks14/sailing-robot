@@ -224,11 +224,11 @@ class PID(object):
 
 if __name__ == "__main__":
     controller = PID(1.0, 2.0, 3.0, 1.0, -1.0)
-    print controller
+    print(controller)
     controller.update_PID(-1)
-    print controller
+    print(controller)
     controller.update_PID(-.5)
-    print controller
+    print(controller)
 
 def saturation(cmd,lowerlimits,higherlimits):
     if cmd>higherlimits:
